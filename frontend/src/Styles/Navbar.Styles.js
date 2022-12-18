@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import {Container} from '../Styles/Global.Styles';
+import {Container} from './Global.Styles';
 
 
 export const Nav = styled.nav` 

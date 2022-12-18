@@ -1,8 +1,8 @@
 // GLobal styles
-import GlobalStyles from './components/Styles/Global.Styles';
+import GlobalStyles from './Styles/Global.Styles';
 
 // components
-import Dashboard from './components/dashboard/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 
 
 function App() {

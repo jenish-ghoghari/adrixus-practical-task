@@ -1,7 +1,7 @@
 //In the Navbar.js file
 import React, { useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
-import { Nav, NavbarContainer, NavLogo, MenuIcon, Menu, MenuItem, MenuLink, UserName, MenuDiv } from '../Styles/Navbar.Styles'
+import { Nav, NavbarContainer, NavLogo, MenuIcon, Menu, MenuItem, MenuLink, UserName, MenuDiv } from '../../Styles/Navbar.Styles'
 import { IconContext } from 'react-icons';
 
 const Navbar = () => {
