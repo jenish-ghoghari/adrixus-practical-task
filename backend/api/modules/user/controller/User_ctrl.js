@@ -115,13 +115,33 @@ function login(req, res) {
 Function : Get All Users 
 */
 function getAllUser(req, res) {
+    let { email, mobile, ageSort} = req.body
+    console.log(email, mobile, ageSort)
     async function acy_get_allUser() {
         try {
-            const user = await commonQuery.FindAll(USER)
+            let user
+            if(email){
+                console.log("Email found")
+                user = await commonQuery.FindOne(USER,{email:email})
+            }else if(mobile){
+                console.log("Mobile found")
+                user = await commonQuery.FindOne(USER,{mobile:mobile})
+            }else if(email && mobile){
+                console.log("Email and Mobile Found")
+                user = await commonQuery.FindOne(USER,{email:email,mobile:mobile})
+            }else if(ageSort){
+                console.log("Age Sort Found")
+                user = await commonQuery.FindAll(USER,{age:1})
+            }else{
+                console.log("Email and mobile not found")
+                user = await commonQuery.FindAll(USER)
+            }
             mres(res, resStatus.Success, resMessage.All_User_List, user)
         } catch (error) {
+            console.log(error)
             mres(res, resStatus.Failed, resMessage.Something_wrong)
         }
     }
     acy_get_allUser()
 }
+

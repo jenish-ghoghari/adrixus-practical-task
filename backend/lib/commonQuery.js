@@ -43,16 +43,29 @@ commonQuery.FindOneUpdate = function FindOneUpdate(model, findId, updatedata) {
     })
 }
 
-commonQuery.FindAll = function FindAll(model) {
+commonQuery.FindAll = function FindAll(model,para=null) {
     return new Promise(function (resolve, reject) {
-        model.find({}).exec(function (err, result) {
-            if (err) {
-                reject(err)
-            } else {
-                resolve(result)
-            }
+        if(para){
+            model.find({}).sort(para).exec(function (err, result) {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(result)
+                }
+            })
+        }else{
+
+            model.find({}).exec(function (err, result) {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(result)
+                }
+            })
+        }
         })
-    })
 }
+
+
 
 module.exports = commonQuery
