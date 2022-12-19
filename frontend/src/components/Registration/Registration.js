@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import {
     Card,
     Form,
@@ -9,9 +10,12 @@ import {
     InputDiv,
     LoginButton,
     BottomContent,
+    ErrorMsg
 } from "../../Styles/Login.Styles";
 import axios from "axios";
 const Register = () => {
+    const navigate = useNavigate();
+    const [errorMsg, setErrorMsg] = useState('')
     const [registerData, setRegisterData] = useState({
         first_name: "",
         last_name: "",
@@ -32,10 +36,17 @@ const Register = () => {
 
         axios.post("http://localhost:8000/api/f/user/registration", fromData)
         .then((response) => {
-            console.log(response);
-            setTimeout(function () {
-                window.location.replace("/");
-            }, 1000);
+            if (response.data.code === 409)
+            {
+                console.log(response.data.message);
+            }
+            else {
+                setTimeout(() => {
+                    localStorage.setItem("userName", response.data.data.first_name)
+                    localStorage.setItem("authToken", response.data.data.authtoken)
+                    navigate('/');
+                }, 1700);
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -44,13 +55,15 @@ const Register = () => {
     return (
         <Card>
             <LoginHeader>Registration</LoginHeader>
+            <ErrorMsg>{ errorMsg}</ErrorMsg>
+
             <Form onSubmit={signup}>
                 <InputDiv>
                     <Label>First Name</Label>
                     <Input placeholder="First Name"
                         name="first_name"
                         type="text"
-                        inputOnChange={(e) =>
+                        onChange={(e) =>
                             setRegisterData({ ...registerData, first_name: e.target.value })
                         }
                     ></Input>
@@ -60,7 +73,7 @@ const Register = () => {
                     <Input placeholder="Last Name"
                         name="last_name"
                         type="text"
-                        inputOnChange={(e) =>
+                        onChange={(e) =>
                             setRegisterData({ ...registerData, last_name: e.target.value })
                         }
                     ></Input>
@@ -70,7 +83,7 @@ const Register = () => {
                     <Input placeholder="Mobile"
                         type="number"
                         name="mobile"
-                        inputOnChange={(e) =>
+                        onChange={(e) =>
                             setRegisterData({ ...registerData, mobile: e.target.value })
                         }
                     ></Input>
@@ -80,7 +93,7 @@ const Register = () => {
                     <Input placeholder="age"
                         name="age"
                         type="number"
-                        inputOnChange={(e) =>
+                        onChange={(e) =>
                             setRegisterData({ ...registerData, age: e.target.value })
                         }
                     ></Input>
@@ -90,7 +103,7 @@ const Register = () => {
                     <Input placeholder="Email"
                         type="email"
                         name="email"
-                        inputOnChange={(e) =>
+                        onChange={(e) =>
                             setRegisterData({ ...registerData, email: e.target.value })
                         }
                     ></Input>
@@ -100,7 +113,7 @@ const Register = () => {
                     <Input placeholder="Password"
                         name="password"
                         type="password"
-                        inputOnChange={(e) =>
+                        onChange={(e) =>
                             setRegisterData({ ...registerData, password: e.target.value })
                         }
                     ></Input>

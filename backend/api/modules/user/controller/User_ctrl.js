@@ -21,6 +21,7 @@ Function : User Registration
 function registration(req, res) {
     async function asy_add_user() {
         try {
+            console.log(req.body)
             if (req.body.email && req.body.password) {
                 const condition = {
                     email: req.body.email,

@@ -11,7 +11,7 @@ const Navbar = () => {
 //Create a function to handle the click state of the menu icon. 
 //if the menu icon was the menu bar at the beginning when clicked it will have the close icon
     const handleClick = () => setClick(!click);
-
+    const userName = localStorage.getItem('userName');
     return (
         <div>
             <IconContext.Provider value={{ color: '#fff'}}> 
@@ -25,7 +25,7 @@ const Navbar = () => {
                         </MenuIcon>
 
                         <MenuDiv>
-                        <UserName>Amit | Admin</UserName>
+                        <UserName>{userName} | Admin</UserName>
                         <Menu onClick={handleClick} click={click}>
                             <MenuItem>
                                 <MenuLink  to="/Logout">Logout</MenuLink>

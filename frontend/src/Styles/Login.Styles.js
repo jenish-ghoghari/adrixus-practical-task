@@ -72,3 +72,10 @@ color: #000;
 font-size: 0.95em;
 font-weight: 400;
 `
+
+export const ErrorMsg = styled.p`
+text-align: center;
+color: red;
+font-size: 2rem;
+font-weight: 600;
+`
