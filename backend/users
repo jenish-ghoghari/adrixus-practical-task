@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "639ffc229664624b8f4b81c0"
+  },
+  "first_name": "Vivian",
+  "last_name": "Welch",
+  "email": "xufibe@mailinator.com",
+  "password": "$2b$10$le4b9AnpgR21GxZk.pNQN.FodBmCe2P/rcIhFXeSARF5P6t7qC14u",
+  "mobile": 22,
+  "age": 82,
+  "register_date": {
+    "$date": "2022-12-19T05:52:34.263Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639ffdde9664624b8f4b81c5"
+  },
+  "first_name": "Hedy",
+  "last_name": "Cash",
+  "email": "hilodilut@mailinator.com",
+  "password": "$2b$10$mWMcoQwU7KXevtWwAge6d.4B1r6nGBwzY1FnHlby5ymQMP57m/BX2",
+  "mobile": 92,
+  "age": 66,
+  "register_date": {
+    "$date": "2022-12-19T05:59:58.945Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639ffe009664624b8f4b81c8"
+  },
+  "first_name": "Dennis",
+  "last_name": "Snyder",
+  "email": "pecibytad@mailinator.com",
+  "password": "$2b$10$5ThEu8AStyBo0AGPw4Aww.4.oN.ZnzDuiZGAPzqx031alrZz73rO6",
+  "mobile": 58,
+  "age": 83,
+  "register_date": {
+    "$date": "2022-12-19T06:00:32.714Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639fff499664624b8f4b81cb"
+  },
+  "first_name": "jems",
+  "last_name": "ghoghari",
+  "email": "jems@gmail.com",
+  "password": "$2b$10$fwSgHNGjeMn4QTlEZaQho.Y2v9U/ZftaBk1SkYFL1MAWAgT.c/3Ci",
+  "mobile": 1234567890,
+  "age": 19,
+  "register_date": {
+    "$date": "2022-12-19T06:06:01.140Z"
+  },
+  "__v": 0
+}]
